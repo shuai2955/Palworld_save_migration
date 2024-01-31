@@ -1,7 +1,7 @@
 # 幻兽帕鲁存档迁移 Palworld_save_migration
 本代码可实现幻兽帕鲁存档的任意方向迁移(从本地/服务器迁移到另一处本地/服务器，不限系统)
 # 请在迁移存档前务必做好备份！！！
-步骤如下（以linux）  
+步骤如下（以linux服务器之间为例）  
 # 第一步，在新服务器上创建一个游戏，生成一个新的存档。  
 # 第二步，将新服务器的存档复制到代码文件的target/Saved文件夹下如果没有这个文件夹，自己创建一个文件夹，注意大小写保持一致。 
  例：/home/steam/Steam/steamapps/common/PalServer/Pal/Saved/SaveGames/0/<save_id>/的内容
