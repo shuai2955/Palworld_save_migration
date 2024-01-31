@@ -19,4 +19,26 @@
 
 
 
-You can migrate 'palword_save' from either Windows local, Windows server, or Linux server to any one of Windows local, Windows server, or Linux server.
+
+
+Palworld Save Migration
+This code can achieve arbitrary direction migration of Palworld save files (from a Linux server to another Linux server).
+
+Please be sure to back up your save files before migrating!!!
+Follow these steps (taking migration between Linux servers as an example):
+
+Step 1: Create a new game on the new server to generate a new save file.
+Step 2: Copy the new server's save files into the target/Saved folder of the code file directory. If this folder does not exist, create one, ensuring the case sensitivity is consistent.
+Example: Contents of /home/steam/Steam/steamapps/common/PalServer/Pal/Saved/SaveGames/0/<save_id>/
+Copy the Players folder, Level.sav, and LevelMeta.sav.
+
+Step 3: Write the old and new save file names in order into source.txt and target.txt, one save name per line, without the extension.
+Example: If fdafdasf is the old save file of a player named Zhang San, and asasas is its new file, then fdafdasf and asasas should be on the same line in both source.txt and target.txt.
+
+Step 4: Copy the old save files (Players folder, Level.sav, LevelMeta.sav) into the source/Saved folder of the code file directory.
+Step 5: Run the Python programs in the given order. After all Python programs have been executed, a final folder will be generated.
+Step 6: Copy the contents of the final folder to the corresponding save file location on the new server for replacement.
+Note
+If there are five players on the old server, but only three can create save files on the new server temporarily, then only the save files of these three players will be migrated after completing the above operations once. For the fourth and fifth players, the migration needs to be completely redone.
+
+Constantly updated. If you have any questions, please leave a message. I will try my best to solve them.
