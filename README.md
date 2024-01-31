@@ -4,6 +4,8 @@
 步骤如下（以linux）  
 第一步，在新服务器上创建一个游戏，生成一个新的存档。  
 第二步，将新服务器的存档复制到代码文件的target/Saved文件夹下（例：/home/steam/Steam/steamapps/common/PalServer/Pal/Saved/SaveGames/0/<save_id>/的内容）  
+本地：C:\Users\Administrator\AppData\Local\Pal\Saved\SaveGames\<ur_steam_id>\<save_id 乱码>  
+复制Players文件夹，Level.sav,LevelMeta.sav即可
 如果没有这个文件夹，自己创建一个文件夹，注意大小写保持一致。
 第三步，将老存档复制到代码文件的source/Saved文件夹下  
 第四步，按照文件顺序依次运行python程序。所有python程序运行完成后，会得到一个final文件夹  
