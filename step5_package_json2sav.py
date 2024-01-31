@@ -62,10 +62,7 @@ def main():
 
 def convert_sav_to_json(filename, output_path, minify):
     print(f"Converting {filename} to JSON, saving to {output_path}")
-    if os.path.exists(output_path):
-        print(f"{output_path} already exists, this will overwrite the file")
-        if not confirm_prompt("Are you sure you want to continue?"):
-            exit(1)
+
     print(f"Decompressing sav file")
     with open(filename, "rb") as f:
         data = f.read()
@@ -80,18 +77,15 @@ def convert_sav_to_json(filename, output_path, minify):
 
 def convert_json_to_sav(filename, output_path):
     print(f"Converting {filename} to SAV, saving to {output_path}")
-    if os.path.exists(output_path):
-        print(f"{output_path} already exists, this will overwrite the file")
-        if not confirm_prompt("Are you sure you want to continue?"):
-            exit(1)
+
     print(f"Loading JSON from {filename}")
     with open(filename, "r", encoding="utf8") as f:
         data = json.load(f)
     gvas_file = GvasFile.load(data)
     print(f"Compressing SAV file")
     if (
-        "Pal.PalWorldSaveGame" in gvas_file.header.save_game_class_name
-        or "Pal.PalLocalWorldSaveGame" in gvas_file.header.save_game_class_name
+            "Pal.PalWorldSaveGame" in gvas_file.header.save_game_class_name
+            or "Pal.PalLocalWorldSaveGame" in gvas_file.header.save_game_class_name
     ):
         save_type = 0x32
     else:
@@ -102,13 +96,6 @@ def convert_json_to_sav(filename, output_path):
     print(f"Writing SAV file to {output_path}")
     with open(output_path, "wb") as f:
         f.write(sav_file)
-
-
-def confirm_prompt(question: str) -> bool:
-    reply = None
-    while reply not in ("y", "n"):
-        reply = input(f"{question} (y/n): ").casefold()
-    return reply == "y"
 
 
 def convert_all_json_to_sav(source_dir, final_dir, convert_func):
