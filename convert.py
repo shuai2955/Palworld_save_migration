@@ -113,4 +113,4 @@ def confirm_prompt(question: str) -> bool:
 
 if __name__ == "__main__":
 
-    convert_sav_to_json('Saved/SaveGames/0/10B5CE8BD94B4BDCB188F97A972D4E6A/Level.sav','Saved/SaveGames/0/10B5CE8BD94B4BDCB188F97A972D4E6A/Level.json',False)
+    convert_sav_to_json('','',False)
