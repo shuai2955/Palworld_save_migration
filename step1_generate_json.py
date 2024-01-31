@@ -62,7 +62,10 @@ def main():
 
 def convert_sav_to_json(filename, output_path, minify):
     print(f"Converting {filename} to JSON, saving to {output_path}")
-
+    if os.path.exists(output_path):
+        print(f"{output_path} already exists, this will overwrite the file")
+        if not confirm_prompt("Are you sure you want to continue?"):
+            exit(1)
     print(f"Decompressing sav file")
     with open(filename, "rb") as f:
         data = f.read()
@@ -77,7 +80,10 @@ def convert_sav_to_json(filename, output_path, minify):
 
 def convert_json_to_sav(filename, output_path):
     print(f"Converting {filename} to SAV, saving to {output_path}")
-
+    if os.path.exists(output_path):
+        print(f"{output_path} already exists, this will overwrite the file")
+        if not confirm_prompt("Are you sure you want to continue?"):
+            exit(1)
     print(f"Loading JSON from {filename}")
     with open(filename, "r", encoding="utf8") as f:
         data = json.load(f)
@@ -98,7 +104,11 @@ def convert_json_to_sav(filename, output_path):
         f.write(sav_file)
 
 
-
+def confirm_prompt(question: str) -> bool:
+    reply = None
+    while reply not in ("y", "n"):
+        reply = input(f"{question} (y/n): ").casefold()
+    return reply == "y"
 def convert_sav_files_in_directory(source_dir, target_dir, minify=False):
     for root, dirs, files in os.walk(source_dir):
         for file in files:
