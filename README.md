@@ -1,5 +1,5 @@
 # 幻兽帕鲁存档迁移 Palworld_save_migration
-本代码可实现幻兽帕鲁存档的任意方向迁移(从linux到linux服务器)
+本代码可实现幻兽帕鲁存档的迁移(从linux到linux服务器)
 # 请在迁移存档前务必做好备份！！！
 步骤如下（以linux服务器之间为例）  
 # 第一步，在新服务器上创建一个游戏，生成一个新的存档。  
@@ -22,7 +22,7 @@
 
 
 Palworld Save Migration
-This code can achieve arbitrary direction migration of Palworld save files (from a Linux server to another Linux server).
+This code can achieve  direction migration of Palworld save files (from a Linux server to another Linux server).
 
 Please be sure to back up your save files before migrating!!!
 Follow these steps (taking migration between Linux servers as an example):
